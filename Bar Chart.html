@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Age Distribution Bar Chart</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    canvas {
+      max-width: 700px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Age Distribution</h2>
+<canvas id="ageChart"></canvas>
+
+<script>
+  window.onload = function () {
+    const ctx = document.getElementById('ageChart').getContext('2d');
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['0-14', '15-24', '25-54', '55-64', '65+'],
+        datasets: [{
+          label: 'Population (millions)',
+          data: [373, 233, 480, 106, 88],
+          backgroundColor: 'rgba(54, 162, 235, 0.6)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: 'India’s Age-wise Population Distribution (2025 )'
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Population (millions)'
+            }
+          },
+          x: {
+            title: {
+              display: true,
+              text: 'Age Groups'
+            }
+          }
+        }
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
